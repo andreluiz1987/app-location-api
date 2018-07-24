@@ -1,31 +1,17 @@
 'use strict'
 
 const app = require('../src/app');
-const http = require('http').Server(app);
+const http = require('http')
 const debug = require('debug')('appLocation:server');
 
-//const port = process.env.PORT || 3000;
-//app.set('port', port);
+const port = process.env.PORT || 3000;
+app.set('port', port);
 
-//const server = http.Server(app);
-
-//server.listen(port);
-//console.log("API rodando porta " + port);
-
-http.listen(process.env.PORT || 3000, function(){
-  console.log('listening on', http.address().port);
+const server = http.createServer(function(req, res){
+  res.writeHead(200, {"Content-type":"text/plain"});
+  res.end("Ola Mundo!!");
 });
+server.listen(port);
 
-function normalizePort(val) {
-  const port = parseInt(val, 10);
+console.log("API rodando porta " + port);
 
-  if (isNaN(port)) {
-    return val;
-  }
-
-  if (port >= 0) {
-    return port;
-  }
-
-  return false;
-}
