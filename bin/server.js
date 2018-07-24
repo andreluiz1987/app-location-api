@@ -4,7 +4,7 @@ const app = require('../src/app');
 const http = require('http');
 const debug = require('debug')('appLocation:server');
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = process.env.PORT || 3000;
 app.set('port', port);
 
 const server = http.createServer(app);
