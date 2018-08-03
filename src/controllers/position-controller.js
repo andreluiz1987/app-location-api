@@ -20,14 +20,15 @@ exports.getPositions = async (req, res, next) => {
 
 exports.getAddress = async (req, res, next) => {
 
-    console.log(req.body.latitude);
-    console.log(req.body.longitude);
+    console.log(req.params.latitude);
+    console.log(req.params.longitude);
+
     try {
         return new Promise(function (resolve, reject) {
             var request = new XMLHttpRequest();
 
             var method = 'GET';
-            var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + req.body.latitude + ',' + req.body.longitude + '&sensor=true';
+            var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + req.params.latitude + ',' + req.params.longitude + '&sensor=true';
             var async = true;
 
             request.open(method, url, async);

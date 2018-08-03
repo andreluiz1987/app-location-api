@@ -8,6 +8,6 @@ router.post('/insertPosition', controller.post);
 
 router.get('/getLastPosition', controller.getPositions)
 
-router.post('/getAddress', controller.getAddress)
+router.get('/getAddress/:latitude/:longitude', controller.getAddress)
 
 module.exports = router;
